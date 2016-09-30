@@ -27,6 +27,10 @@ public class Rectangle {
                 '}';
     }
 
+    public Rectangle clone() {
+        return new Rectangle(this.x,this.y,this.w,this.h);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

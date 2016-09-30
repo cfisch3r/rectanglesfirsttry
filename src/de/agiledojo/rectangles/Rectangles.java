@@ -7,7 +7,7 @@ public class Rectangles {
         Rectangle outline = null;
         for (Rectangle rectangle: rectangles) {
               if  (outline == null) {
-                  outline =new Rectangle(rectangle.x,rectangle.y,rectangle.w,rectangle.h);
+                  outline =rectangle.clone();
               } else {
                   outline.w = (rectangle.x + rectangle.w - outline.x);
               }
