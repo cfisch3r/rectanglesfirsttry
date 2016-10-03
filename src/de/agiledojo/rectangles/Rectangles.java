@@ -3,28 +3,19 @@ package de.agiledojo.rectangles;
 import java.util.List;
 
 public class Rectangles {
+
     public Rectangle outline(List<Rectangle> rectangles) {
         Rectangle outline = null;
         for (Rectangle rectangle: rectangles) {
-              if  (outline == null) {
-                  outline =rectangle.clone();
-              } else {
-                  if (rectangle.x < outline.x) {
-                      outline.w += outline.x - rectangle.x;
-                      outline.x = rectangle.x;
-                  }
-                  if (rectangle.y < outline.y) {
-                      outline.h += outline.y - rectangle.y;
-                      outline.y = rectangle.y;
-                  }
-                  if (rectangle.getRightX() > outline.getRightX()) {
-                      outline.w += rectangle.getRightX() - outline.getRightX();
-                  }
-                  if (rectangle.getUpperY() > outline.getUpperY()) {
-                      outline.h += rectangle.getUpperY() - outline.getUpperY();
-                  }
-              }
+            outline = (outline == null)? rectangle.clone() : calculateOutline(outline, rectangle);
         }
+        return outline;
+    }
+
+    private Rectangle calculateOutline(Rectangle outline, Rectangle rectangle) {
+        Dimension dimensionX = (new Dimension(outline.x,outline.w)).add(new Dimension(rectangle.x,rectangle.w));
+        Dimension dimensionY = (new Dimension(outline.y,outline.h)).add(new Dimension(rectangle.y,rectangle.h));
+        outline = new Rectangle(dimensionX.ordinate,dimensionY.ordinate,dimensionX.length,dimensionY.length);
         return outline;
     }
 }
