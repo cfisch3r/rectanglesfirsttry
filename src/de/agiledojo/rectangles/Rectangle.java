@@ -31,8 +31,12 @@ public class Rectangle {
         return new Rectangle(this.x,this.y,this.w,this.h);
     }
 
-    public int getY() {
-        return this.x + this.h;
+    public int getRightX() {
+        return this.x + this.w;
+    }
+
+    public int getUpperY() {
+        return this.y + this.h;
     }
 
     @Override

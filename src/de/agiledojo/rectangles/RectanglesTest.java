@@ -36,6 +36,17 @@ public class RectanglesTest {
         withRectangle(1,3,4,10).withRectangle(2,3,4,10).assertOutlineToBe(1,3,5,10);
     }
 
+    @Test
+    public void outlineRectangleWithLowerNeigbour() throws Exception {
+        withRectangle(1,3,4,10).withRectangle(1,2,4,10).assertOutlineToBe(1,2,4,11);
+    }
+
+
+    @Test
+    public void outlineRectangleWithHigherNeigbour() throws Exception {
+        withRectangle(1,3,4,10).withRectangle(1,4,4,10).assertOutlineToBe(1,3,4,11);
+    }
+
     private RectanglesTest withRectangle(int x, int y, int w, int h) {
         fixture.add(new Rectangle(x,y,w,h));
         return this;
