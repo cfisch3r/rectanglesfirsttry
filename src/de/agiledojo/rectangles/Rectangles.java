@@ -9,7 +9,13 @@ public class Rectangles {
               if  (outline == null) {
                   outline =rectangle.clone();
               } else {
-                  outline.w = (rectangle.x + rectangle.w - outline.x);
+                  if (rectangle.x < outline.x) {
+                      outline.w += outline.x - rectangle.x;
+                      outline.x = rectangle.x;
+                  }
+                  if (rectangle.x + rectangle.w > outline.x + outline.w) {
+                      outline.w += (rectangle.x + rectangle.w) - (outline.x + outline.w);
+                  }
               }
         }
         return outline;

@@ -24,10 +24,16 @@ public class RectanglesTest {
     }
 
     @Test
-    public void outlineRectangleWithRightNeigbour() {
-        assertEquals(new Rectangle(1,3,12,10), rectangles.outline(
-                asList(new Rectangle(1,3,4,10),new Rectangle(6,3,7,10))));
+    public void outlineRectangleWithLeftNeigbour() throws Exception {
+        assertEquals(new Rectangle(0,3,5,10), rectangles.outline(
+                asList(new Rectangle(1,3,4,10),new Rectangle(0,3,4,10))));
+
     }
 
+    @Test
+    public void outlineRectangleWithRightNeigbour() throws Exception {
+        assertEquals(new Rectangle(1,3,5,10), rectangles.outline(
+                asList(new Rectangle(1,3,4,10),new Rectangle(2,3,4,10))));
 
+    }
 }
