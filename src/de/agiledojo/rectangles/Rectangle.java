@@ -31,6 +31,10 @@ public class Rectangle {
         return new Rectangle(this.x,this.y,this.w,this.h);
     }
 
+    public int getY() {
+        return this.x + this.h;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

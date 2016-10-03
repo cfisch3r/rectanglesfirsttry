@@ -13,8 +13,8 @@ public class Rectangles {
                       outline.w += outline.x - rectangle.x;
                       outline.x = rectangle.x;
                   }
-                  if (rectangle.x + rectangle.w > outline.x + outline.w) {
-                      outline.w += (rectangle.x + rectangle.w) - (outline.x + outline.w);
+                  if (rectangle.getY() > outline.getY()) {
+                      outline.w += rectangle.getY() - outline.getY();
                   }
               }
         }
